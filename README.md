@@ -67,7 +67,6 @@ virtual-cosmos/
 │
 └── README.md
 
----
 
 ## 🚀 Getting Started
 
@@ -128,63 +127,6 @@ VITE ready on http://localhost:5173
 6. Move apart — chat disconnects automatically
 ---
 
-## 🔄 Data Flow Diagrams
-
-### Player Movement
-Key held down (WASD)
-→ useKeyboard ref detects it
-→ Game loop reads ref (60fps)
-→ x/y position updated
-→ emitMove(x, y) called
-→ Socket sends 'move' to server
-→ Server broadcasts 'user-moved'
-→ All other tabs update that user's position
-→ Canvas redraws at new position
-
-### Chat Connect
-Distance < 260px detected in game loop
-→ onProximityChange([userId]) called
-→ App.jsx sets nearbyUsers state
-→ ChatPanel receives isOpen=true
-→ Fade-in animation plays
-→ Yellow glow + pulse ring on other player
-→ Connection line drawn between players
-
-### Chat Disconnect
-Distance ≥ 260px detected
-→ onProximityChange([]) called
-→ App.jsx sets nearbyUsers = []
-→ clearMessages() wipes chat history
-→ ChatPanel receives isOpen=false
-→ Fade-out animation plays → unmounts
-→ Glow and connection line disappear
-
-### Message Send
-User types message + hits Enter
-→ ChatPanel loops through nearbyUsers
-→ emitMessage(id, text) for each nearby user
-→ Socket sends 'chat-message' to server
-→ Server relays to target socket ID
-→ Server also echoes back to sender
-→ Both tabs receive 'receive-message'
-→ messages state updated in useSocket
-→ ChatPanel re-renders + auto-scrolls
-
----
-
-##  Key Technical Decisions
-
-| Decision | Reason |
-|---|---|
-| `useRef` for keyboard state | Avoids re-render on every keypress — game loop reads it directly |
-| `usersRef` inside game loop | useEffect closure captures initial value — ref stays current |
-| Proximity check every frame | Instant response with no polling delay or debounce needed |
-| `initializedRef` guard | Prevents PixiJS double-init from React 18 StrictMode |
-| In-memory user store | Positions are ephemeral — reset on disconnect anyway |
-| Echo message to sender | Sender sees their own message without optimistic UI tricks |
-| PixiJS `app.init()` async | PixiJS v8 changed from sync constructor to async init |
-
----
 
 ##  Environment Variables
 
@@ -192,32 +134,6 @@ User types message + hits Enter
 ```env
 PORT=3001
 ```
-
----
-
-##  Common Issues & Fixes
-
-### Tailwind CSS PostCSS error
-```bash
-npm install @tailwindcss/postcss
-```
-Update `postcss.config.js`:
-```js
-export default {
-  plugins: { '@tailwindcss/postcss': {}, autoprefixer: {} }
-}
-```
-
-### PixiJS `appendChild of null` error
-Remove `<React.StrictMode>` from `main.jsx` — StrictMode double-fires effects which breaks PixiJS async init.
-
-### Canvas not showing
-Make sure both terminals are running — server on port `3001` and client on port `5173`.
-
-### Players not syncing
-Check browser console for CORS errors — ensure server CORS origin matches `http://localhost:5173`.
-
----
 
 ##  Demo Video
 
