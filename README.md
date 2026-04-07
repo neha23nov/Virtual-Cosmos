@@ -2,15 +2,6 @@
 
 > A real-time 2D virtual space where proximity drives connection.  
 > Move close to someone → chat opens. Move away → chat closes.
-
----
-
-## 📸 Preview
-
-![Virtual Cosmos Preview](https://i.imgur.com/placeholder.png)
-
-> Two users in proximity — chat panel auto-connects, yellow glow activates, connection line appears.
-
 ---
 
 ##  Features
@@ -55,39 +46,24 @@
 | Socket.IO | 4+ | Real-time bidirectional event system |
 | dotenv | - | Environment variable management |
 
----
-
 ## 📁 Project Structure
+
+```bash
 virtual-cosmos/
 │
 ├── server/                        # Backend
-│   ├── index.js                   # Express + Socket.IO server
-│   ├── .env                       # Environment variables
+│   ├── index.js
+│   ├── .env
 │   └── package.json
 │
 ├── client/                        # Frontend
-│   ├── index.html                 # App entry + Google Fonts
+│   ├── index.html
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── CosmosCanvas.jsx   # PixiJS canvas + 60fps game loop
-│   │   │   ├── ChatPanel.jsx      # Proximity-triggered chat UI
-│   │   │   ├── MiniMap.jsx        # Live minimap overlay
-│   │   │   └── Toast.jsx          # Join/leave notifications
-│   │   │
 │   │   ├── hooks/
-│   │   │   ├── useSocket.js       # Socket.IO state + event handling
-│   │   │   └── useKeyboard.js     # Keyboard input tracking via ref
-│   │   │
 │   │   ├── utils/
-│   │   │   ├── constants.js       # Colors, radii, speeds, avatars
-│   │   │   └── proximity.js       # Euclidean distance calculation
-│   │   │
-│   │   ├── App.jsx                # Root — state, layout, orchestration
-│   │   └── index.css              # Global styles + keyframe animations
-│   │
-│   ├── tailwind.config.js
-│   ├── postcss.config.js
-│   └── package.json
+│   │   ├── App.jsx
+│   │   └── index.css
 │
 └── README.md
 
