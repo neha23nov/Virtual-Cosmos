@@ -9,21 +9,21 @@
 ### Core Features
 | Feature | Description |
 |---|---|
-| 🎮 2D Movement | Move your avatar using WASD or Arrow keys in real time |
-| 👥 Real-Time Multiplayer | All connected users visible and synced live |
-| 📡 Proximity Detection | Euclidean distance checked every frame at 60fps |
-| 💬 Auto Chat | Chat panel opens when close, closes when far |
+| 2D Movement | Move your avatar using WASD or Arrow keys in real time |
+| Real-Time Multiplayer | All connected users visible and synced live |
+| Proximity Detection | Euclidean distance checked every frame at 60fps |
+| Auto Chat | Chat panel opens when close, closes when far |
 
 ### Bonus Features
 | Feature | Description |
 |---|---|
-| 🎭 Avatar Picker | Choose from 8 emoji avatars on the join screen |
-| 🗺️ Mini-Map | Live bottom-left overview of all player positions |
-| 🔔 Toast Notifications | Slide-in alerts when users join or leave |
-| 😀 Emoji Reactions | Press keys 1–5 or click the reaction bar to react |
-| ✨ Tile Floor Canvas | Checkerboard floor with shadows, glow and shine effects |
-| 🟢 Online Dot | Green status indicator on every player |
-| 🎨 Glassmorphism UI | Blurred, layered panels with custom animations |
+| Avatar Picker | Choose from 8 emoji avatars on the join screen |
+| Mini-Map | Live bottom-left overview of all player positions |
+| Toast Notifications | Slide-in alerts when users join or leave |
+| Emoji Reactions | Press keys 1–5 or click the reaction bar to react |
+| Tile Floor Canvas | Checkerboard floor with shadows, glow and shine effects |
+| Online Dot | Green status indicator on every player |
+| Glassmorphism UI | Blurred, layered panels with custom animations |
 
 ---
 
@@ -137,7 +137,7 @@ PORT=3001
 
 ##  Demo Video
 
->  [Watch Demo](https://www.youtube.com/watch?v=BAQokpCGDug))
+>  [Watch Demo](https://www.youtube.com/watch?v=BAQokpCGDug)
 
 Covers:
 - Join screen with avatar picker
